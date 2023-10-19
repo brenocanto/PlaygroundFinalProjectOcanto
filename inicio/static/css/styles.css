@@ -8127,7 +8127,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  background: url()
 }
 
 .bg-secondary {
@@ -11043,4 +11043,12 @@ html {
 
 .copyright {
   background-color: #1a252f;
+}
+
+header{
+  width:1000px;
+  height: 259px;
+  background: url("inicio\static\assets\img\portfolio\Taylorswift.jpg");
+
+
 }

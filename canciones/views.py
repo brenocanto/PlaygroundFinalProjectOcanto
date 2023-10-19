@@ -9,23 +9,23 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class CancionCreateView(CreateView):
     model = Cancion
-    template_name = "nueva/crear_cancion.html"
+    template_name = "canciones/crear_cancion.html"
     fields = ["titulo","album","letra","fecha_lanzamiento"]
     success_url = reverse_lazy("cancion")
     
 class CancionDeleteView(LoginRequiredMixin, DeleteView):
     model = Cancion
-    template_name = "nueva/eliminar_cancion.html"
+    template_name = "canciones/eliminar_cancion.html"
     success_url = reverse_lazy("cancion")
 
 class CancionDetailView(DetailView):
     model = Cancion
-    template_name = "nueva/detalle_cancion.html"
+    template_name = "canciones/detalle_cancion.html"
 
 class CancionListView(ListView):
     model = Cancion
     context_object_name = "listado_cancion"
-    template_name = "nueva/listar_cancion.html"
+    template_name = "canciones/listar_cancion.html"
     
     def get_queryset(self):
         titulo = self.request.GET.get('titulo', '')
@@ -37,6 +37,6 @@ class CancionListView(ListView):
     
 class CancionUpdateView(LoginRequiredMixin, UpdateView):
     model = Cancion
-    template_name = "nueva/editar_cancion.html"
+    template_name = "canciones/editar_cancion.html"
     fields = ["titulo","album","letra","fecha_lanzamiento"]
     success_url = reverse_lazy("cancion")

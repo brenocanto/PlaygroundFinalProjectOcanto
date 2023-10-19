@@ -5,7 +5,7 @@ Registrarse
 {% endblock title_head %}
 
 {% block h1_header %}Registrarse{% endblock h1_header %}
-
+{% block masthead %}Registrate en nuestra página!{% endblock masthead %}
 {% block main %} 
 <form action={% url "registro" %} method= "POST">
     {% csrf_token %}

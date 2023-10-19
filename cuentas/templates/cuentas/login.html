@@ -5,7 +5,7 @@ Login
 {% endblock title_head %}
 
 {% block h1_header %}Login{% endblock h1_header %}
-
+{% block masthead %}Ingresá tu usuario y contraseña{% endblock masthead %}
 {% block main %} 
 <form action={% url "login" %} method= "POST">
     {% csrf_token %}

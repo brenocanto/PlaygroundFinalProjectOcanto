@@ -1,10 +1,10 @@
 {% extends "compartidos/base.html" %}
 
 {% block title_head %}Canciones{% endblock title_head %}
-{% block h1_header %}{% endblock h1_header %}
+{% block h1_header %}Canciones{% endblock h1_header %}
+{% block masthead %}Mirá o ingresa alguna cancion de Taylor!{% endblock masthead %}
 
 {% block main %} 
-
 <a class="navbar-brand" href={% url "crear_cancion" %}>Ingresar Canción Nueva</a>
 <form action="">
     <input type="text" name='marca' placeholder='Ingresa canción...'>
