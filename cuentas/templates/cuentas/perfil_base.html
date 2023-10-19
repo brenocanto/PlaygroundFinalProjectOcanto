@@ -1,0 +1,20 @@
+{% extends "compartidos/base.html" %}
+
+{% block title_head %}
+Mi perfil
+{% endblock title_head %}
+
+{% block h1_header %}Mi perfil 
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Usuario: {{request.user.username}}</li>
+    <li>Nombre: {{request.user.first_name}}</li>
+    <li>Apellido: {{request.user.last_name}}</li>
+    <li>Email: {{request.user.email}}</li>
+    <li>Link: {{request.user.infoextra.link}}</li>
+    <li>Avatar: <img src={{request.user.infoextra.avatar.url}} alt="" height='35px'></li>
+</ul>
+<a href={% url "editar_perfil" %}>Editar Perfil</a>
+{% endblock main %}

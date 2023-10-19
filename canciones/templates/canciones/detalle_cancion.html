@@ -1,0 +1,17 @@
+{% extends "compartidos/base.html" %}
+
+
+{% block title_head %}Detalle{% endblock title_head %}
+
+{% block h1_header %}
+Detalles de canción número: {{cancion.id}}
+{% endblock h1_header %}
+
+{% block main %}
+<ul>
+    <li>Titulo: {{cancion.titulo}} </li>
+    <li>Album: {{cancion.album}}</li>
+    <li>Letra: {{cancion.letra | safe}}</li>
+    <li>Fecha de lanzamiento: {{cancion.fecha_lanzamiento}}</li>
+</ul>
+{% endblock main %}

@@ -1,0 +1,15 @@
+{% extends "compartidos/base.html" %}
+
+
+{% block title_head %}Eliminar cancion{% endblock title_head %}
+{% block h1_header %}Eliminar cancion{% endblock h1_header %}
+
+{% block main %} 
+
+<form action={% url "eliminar_cancion" cancion.id %} method= "POST">
+    {% csrf_token %}
+    <p>Realmente quiere eliminar la canción {{cancion.id}}?</p>
+    <input type="submit" value="Confirmar" />
+</form>
+
+{% endblock main %}
