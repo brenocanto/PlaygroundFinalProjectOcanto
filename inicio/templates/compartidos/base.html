@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href={% url "inicio" %}>Mi primera página</a>
+                <a class="navbar-brand" href={% url "inicio" %}>El rincón Swiftie</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -35,11 +35,11 @@
                         {% if request.user.infoextra.avatar %}
                             <img src={{request.user.infoextra.avatar.url}} alt="" height='35px'>
                         {% endif %}
-                        <a class="btn btn-outline-primary" href={% url "perfil_base" %}>{{request.user.username}}</a>
-                        <a class="btn btn-primary" href= {% url "logout" %}>Cerrar Sesión</a>
+                        <a class="btn btn-outline-primary mb-4 mb-lg0 mx-4" href={% url "perfil_base" %}>{{request.user.username}}</a>
+                        <a class="btn btn-primary mb-4 mb-lg0 mx-4" href= {% url "logout" %}>Cerrar Sesión</a>
                         {% else %}
-                        <a class="btn btn-primary" href= {% url "login" %}>Iniciar Sesión</a> 
-                        <a class="btn btn-outline-primary" href= {% url "registro" %}>Registrarse</a> 
+                        <a class="btn btn-primary mb-4 mb-lg0 mx-4" href= {% url "login" %}>Iniciar Sesión</a> 
+                        <a class="btn btn-outline-primary mb-4 mb-lg0 mx-4 " href= {% url "registro" %}>Registrarse</a> 
                         {% endif %} 
                     </ul>
                 </div>
@@ -72,7 +72,7 @@
             <div class="container">
                 <div class="row">
                    <!-- Footer Social Icons-->
-                    <div class="col-lg-30 mb-4 mb-lg-0">
+                    <div class="col-lg-30 mb-4 mb-lg-40">
                         <h4 class="text-uppercase mb-4">Nuestras webs</h4>
                         <a class="btn btn-outline-light btn-social mx-1" href={% url "reparacion" %}><i class="fab fa-fw fa-facebook-f"></i></a>
                         <a class="btn btn-outline-light btn-social mx-1" href={% url "reparacion" %}><i class="fab fa-fw fa-twitter"></i></a>
@@ -85,7 +85,7 @@
         <div class="copyright py-4 text-center text-white">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                    <div class="col-lg-8 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href={% url "sobre_mi" %}>Acerca de mi</a></li>
                             <li class="list-inline-item">⋅</li>

@@ -2772,7 +2772,7 @@ textarea.form-control-lg {
   --bs-btn-font-family: ;
   --bs-btn-font-size: 1rem;
   --bs-btn-font-weight: 400;
-  --bs-btn-line-height: 1.5;
+  --bs-btn-line-height: 1;
   --bs-btn-color: #212529;
   --bs-btn-bg: transparent;
   --bs-btn-border-width: 0.125rem;
@@ -8127,7 +8127,7 @@ textarea.form-control-lg {
 
 .bg-primary {
   --bs-bg-opacity: 1;
-  background: url()
+  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-secondary {
@@ -11043,12 +11043,4 @@ html {
 
 .copyright {
   background-color: #1a252f;
-}
-
-header{
-  width:1000px;
-  height: 259px;
-  background: url("inicio\static\assets\img\portfolio\Taylorswift.jpg");
-
-
 }

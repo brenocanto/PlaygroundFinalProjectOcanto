@@ -6,7 +6,8 @@ Mi perfil
 
 {% block h1_header %}Mi perfil 
 {% endblock h1_header %}
-
+{% block masthead %} 
+{% endblock masthead %}
 {% block main %}
 <ul>
     <li>Usuario: {{request.user.username}}</li>
@@ -14,7 +15,7 @@ Mi perfil
     <li>Apellido: {{request.user.last_name}}</li>
     <li>Email: {{request.user.email}}</li>
     <li>Link: {{request.user.infoextra.link}}</li>
-    <li>Avatar: <img src={{request.user.infoextra.avatar}} alt="" height="35px"> </li>
+    <li>Avatar: <img src={{request.user.infoextra.avatar.url}} alt="" height="50px"> </li>
 </ul>
 <a href={% url "editar_perfil" %}>Editar Perfil</a>
 {% endblock main %}
