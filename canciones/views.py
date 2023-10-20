@@ -7,7 +7,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class CancionCreateView(CreateView):
+class CancionCreateView(LoginRequiredMixin, CreateView):
     model = Cancion
     template_name = "canciones/crear_cancion.html"
     fields = ["titulo","album","letra","fecha_lanzamiento"]

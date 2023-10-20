@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'inicio',
     'cuentas',
     'canciones',
-    'ckeditor'
+    'ckeditor',
+    'chats'
 ]
 
 MIDDLEWARE = [

@@ -21,7 +21,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href={% url "inicio" %}>El rincón Swiftie</a>
+                <a class="navbar-brand mb-0" href={% url "inicio" %}>El rincón Swiftie</a>
                 <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -30,16 +30,20 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "inicio" %}>Inicio</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "cancion" %}>Canciones</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href={% url "mensajes" %}>Mensajes</a></li>
+                        {% if request.user.is_authenticated and not request.user.is_staff %}
+                            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded {% block bloque_chat_active %}{% endblock bloque_chat_active %}" href={% url 'ver_conversaciones' %}><i class="bi bi-chat"></i> Chat</a></li>
+                            {% block bloque_nav_items_chat %}{% endblock bloque_nav_items_chat %}
+                        {% endif %}
+                        {% block bloque_nav_item_sobre_mi %}{% endblock bloque_nav_item_sobre_mi %}
                         {% if request.user.is_authenticated%}
                         {% if request.user.infoextra.avatar %}
-                            <img src={{request.user.infoextra.avatar.url}} alt="" height='35px'>
+                            <img class="img rounded-circle mx-4" src={{request.user.infoextra.avatar.url}} alt="" height='50px'>
                         {% endif %}
-                        <a class="btn btn-outline-primary mb-4 mb-lg0 mx-4" href={% url "perfil_base" %}>{{request.user.username}}</a>
-                        <a class="btn btn-primary mb-4 mb-lg0 mx-4" href= {% url "logout" %}>Cerrar Sesión</a>
+                        <a class="btn btn-outline-primary mb-3 mb-lg0 mx-4" href={% url "perfil_base" %}>{{request.user.username}}</a>
+                        <a class="btn btn-primary mb-3 mb-lg0 mx-4" href= {% url "logout" %}>Cerrar Sesión</a>
                         {% else %}
-                        <a class="btn btn-primary mb-4 mb-lg0 mx-4" href= {% url "login" %}>Iniciar Sesión</a> 
-                        <a class="btn btn-outline-primary mb-4 mb-lg0 mx-4 " href= {% url "registro" %}>Registrarse</a> 
+                        <a class="btn btn-primary mb-3 mb-lg0 mx-4" href= {% url "login" %}>Iniciar Sesión</a> 
+                        <a class="btn btn-outline-primary mb-3 mb-lg0 mx-4 " href= {% url "registro" %}>Registrarse</a> 
                         {% endif %} 
                     </ul>
                 </div>
@@ -64,8 +68,14 @@
             </div>
         </header>
         <main>
-            {% block main %}
-            {% endblock main %}
+            <section class="bg-light">
+                <div class="container p-3 p-lg-4">
+                    <div class="row gx-4 gx-lg-5 justify-content-center">                          
+                             {% block main %}
+                            {% endblock main %}                                             
+                    </div>
+                </div>
+            </section>
             <main>              
         <!-- Footer-->
         <footer class="footer text-center">
@@ -95,7 +105,7 @@
                             <li class="list-inline-item">⋅</li>
                             <li class="list-inline-item"><a href={% url "reparacion" %}>Políticas de Privacidad</a></li>
                         </ul>
-                <small>Copyright &copy; Your Website 2023</small>
+                <small>Copyright &copy; Brenda Ocanto - Entrega Final 2023</small>
                     </div>
                 </div>
             </div>

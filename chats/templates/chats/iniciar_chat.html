@@ -1,0 +1,21 @@
+{% extends "compartidos/base.html" %}
+
+{% block title_head %}Iniciar chat{% endblock title_head %}
+
+{% block h1_header %}Iniciar Chat{% endblock h1_header %}
+{% block masthead %} Estas por iniciar un nuevo chat!{% endblock masthead %}
+
+{% block main %}
+<section class="bg-light">
+    <div class="container px-4 px-lg-5">
+        <form class="p-3 p-lg-4 lead" action={% url 'nuevo_chat' %} method="POST">
+            {% csrf_token %}
+            {{formulario_iniciar_chat.as_p}}
+            <div>
+                <button class="btn btn-outline-primary"><i class="bi bi-chat"></i> Iniciar</button>
+                <a class="btn btn-outline-danger" href={% url 'ver_conversaciones' %} role="button"><i class="bi bi-x-circle"></i> Cancelar</a>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock main %}
