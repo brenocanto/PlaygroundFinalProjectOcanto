@@ -15,7 +15,10 @@
 <ul>
     {% for cancion in listado_cancion %}
         <li>
-            <a href={% url "detalle_cancion" cancion.id%}>{{cancion}}</a> || <a href={% url "editar_cancion" cancion.id %}>Editar</a> || <a href={% url "eliminar_cancion" cancion.id %}>Eliminar</a>
+            <a href={% url "detalle_cancion" cancion.id%}>{{cancion}}</a> 
+            {% if request.user.is_authenticated and cancion.autor == request.user %}
+            <a href={% url "editar_cancion" cancion.id %}>Editar</a> || <a href={% url "eliminar_cancion" cancion.id %}>Eliminar</a>
+            {% endif %}
         </li>
     {% endfor %}
 </ul>
@@ -23,3 +26,4 @@
 <p>No se encontraron canciones</p>
 {% endif %}
 {% endblock main %}
+

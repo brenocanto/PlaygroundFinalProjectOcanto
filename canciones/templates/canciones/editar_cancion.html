@@ -14,6 +14,7 @@
         {{form.media}}
     </table>
     <input type="submit" value="Editar" />
+    <a class="btn btn-outline-danger fst-italic" href={% url 'detalle_cancion' cancion.id %} role="button"><i class="bi bi-x-circle"></i> Cancelar</a>
 </form>
 
 {% endblock main %}

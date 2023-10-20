@@ -13,6 +13,10 @@ class CancionCreateView(LoginRequiredMixin, CreateView):
     fields = ["titulo","album","letra","fecha_lanzamiento"]
     success_url = reverse_lazy("cancion")
     
+    def form_valid(self, form):
+        form.instance.autor = self.request.user
+        return super().form_valid(form)
+    
 class CancionDeleteView(LoginRequiredMixin, DeleteView):
     model = Cancion
     template_name = "canciones/eliminar_cancion.html"
