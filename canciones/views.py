@@ -10,7 +10,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 class CancionCreateView(LoginRequiredMixin, CreateView):
     model = Cancion
     template_name = "canciones/crear_cancion.html"
-    fields = ["titulo","album","letra","fecha_lanzamiento"]
+    fields = ["titulo","album","letra","fecha_lanzamiento","imagen"]
     success_url = reverse_lazy("cancion")
     
     def form_valid(self, form):
@@ -42,5 +42,5 @@ class CancionListView(ListView):
 class CancionUpdateView(LoginRequiredMixin, UpdateView):
     model = Cancion
     template_name = "canciones/editar_cancion.html"
-    fields = ["titulo","album","letra","fecha_lanzamiento"]
+    fields = ["titulo","album","letra","fecha_lanzamiento","imagen"]
     success_url = reverse_lazy("cancion")

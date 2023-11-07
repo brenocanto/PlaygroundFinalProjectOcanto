@@ -7,7 +7,7 @@
 {% endblock masthead %}
 {% block main %} 
 
-<form action={% url "crear_cancion" %} method= "POST">
+<form action={% url "crear_cancion" %} method= "POST" enctype = "multipart/form-data">
     {% csrf_token %}
     <table>
         {{form}}

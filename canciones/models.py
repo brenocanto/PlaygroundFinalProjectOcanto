@@ -8,7 +8,7 @@ class Cancion(models.Model):
     letra = RichTextField()
     autor = models.ForeignKey(User, on_delete=models.CASCADE, default="")
     fecha_lanzamiento= models.DateField()
-    
+    imagen = models.ImageField(upload_to='imagenes', null= True, blank= True)
     
     def __str__(self):
         return f'{self.titulo} ({self.album}) - Usuario: {self.autor}'

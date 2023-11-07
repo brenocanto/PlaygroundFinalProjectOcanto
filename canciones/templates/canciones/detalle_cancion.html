@@ -1,6 +1,5 @@
 {% extends "compartidos/base.html" %}
-
-
+{% load static %}
 {% block title_head %}Detalle{% endblock title_head %}
 
 {% block h1_header %}
@@ -16,5 +15,11 @@ Detalles de canción número: {{cancion.id}}
     <li>Letra: {{cancion.letra | safe}}</li>
     <li>Fecha de lanzamiento: {{cancion.fecha_lanzamiento}}</li>
     <li>Autor: {{cancion.autor}}</li>
+    <li>Imagen: </li>
+    {% if cancion.imagen %}
+        <img src={{cancion.imagen.url}} alt="" height="250px"> 
+    {% else %}
+    <p>Sin imagen</p>
+    {% endif %}
 </ul>
 {% endblock main %}
